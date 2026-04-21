@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farm.controller.FarmController">
+    <center>
+        <Canvas fx:id="canvas" width="800" height="600" />
+    </center>
+    <right>
+        <VBox spacing="10" prefWidth="320" style="-fx-background-color: #f0f0f0;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            
+            <Label text="Gestión de Granja" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            
+            <!-- BÚSQUEDA / FILTRO -->
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <TextField fx:id="txtBuscar" promptText="Buscar por crotal o especie..." HBox.hgrow="ALWAYS"/>
+                <Button text="Buscar" onAction="#buscarAnimal" />
+                <Button text="Limpiar" onAction="#limpiarBusqueda" />
+            </HBox>
+            
+            <TableView fx:id="tableAnimales" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="30"/>
+                    <TableColumn fx:id="colCrotal" text="Crotal" prefWidth="80"/>
+                    <TableColumn fx:id="colEspecie" text="Especie" prefWidth="60"/>
+                    <TableColumn fx:id="colRaza" text="Raza" prefWidth="60"/>
+                    <TableColumn fx:id="colFechaNac" text="Nacimiento" prefWidth="80"/>
+                    <TableColumn fx:id="colPeso" text="Peso(Kg)" prefWidth="50"/>
+                    <TableColumn fx:id="colEstado" text="Salud" prefWidth="60"/>
+                    <TableColumn fx:id="colProposito" text="Uso" prefWidth="60"/>
+                    <TableColumn fx:id="colCorral" text="Corral" prefWidth="80"/>
+                    <TableColumn fx:id="colGranja" text="Granja" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Separator />
+            
+            <!-- FORMULARIO: AÑADIR / EDITAR -->
+            <Label text="Datos del Animal" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <TextField fx:id="txtCrotal" promptText="Núm. Crotal (ej: ES123456789)"/>
+            <TextField fx:id="txtEspecie" promptText="Especie (ej: Bovino)"/>
+            <TextField fx:id="txtRaza" promptText="Raza (ej: Frisona)"/>
+            <DatePicker fx:id="dpFechaNac" promptText="Fecha de nacimiento"/>
+            <TextField fx:id="txtPeso" promptText="Peso (kg)"/>
+            <TextField fx:id="txtEstado" promptText="Estado de salud (Sano/Enfermo/Tratamiento)"/>
+            <TextField fx:id="txtProposito" promptText="Propósito (Leche/Carne/Lana/Huevos)"/>
+            <TextField fx:id="txtGranja" promptText="Granja (ej: Los Pinos)"/>
+            <TextField fx:id="txtCorral" promptText="Corral (ej: Nave 1)"/>
+            
+            <HBox spacing="10">
+                <Button text="Añadir" onAction="#addAnimal" />
+                <Button text="Editar Seleccionado" onAction="#updateAnimal" />
+                <Button text="Borrar Seleccionado" onAction="#deleteAnimal" />
+            </HBox>
+            
+            <Separator />
+            
+            <!-- FUNCIONALIDADES EXTRA -->
+            <Button text="Gestionar Tratamientos" onAction="#gestionarTratamientos" maxWidth="Infinity" />
+            <Button text="Exportar Inventario a XML" onAction="#exportXML" maxWidth="Infinity" />
+            <Button text="Recargar desde BBDD" onAction="#loadData" maxWidth="Infinity" />
+            <Label fx:id="lblStatus" text="Estado: Listo" textFill="green" wrapText="true"/>
+        </VBox>
+    </right>
+</BorderPane>
