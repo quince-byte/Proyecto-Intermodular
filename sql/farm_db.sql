@@ -1,3 +1,5 @@
+-- Script DDL
+
 DROP DATABASE IF EXISTS farm_db;
 CREATE DATABASE farm_db;
 USE farm_db;
@@ -43,18 +45,31 @@ CREATE TABLE IF NOT EXISTS tratamientos (
 );
 
 -- Inserción de datos de ejemplo
-INSERT INTO granjas (nombre, ubicacion, propietario) VALUES ('Granja Los Pinos', 'Norte', 'Carlos Pérez');
-INSERT INTO granjas (nombre, ubicacion, propietario) VALUES ('Granja El Valle', 'Sur', 'María Gómez');
+-- Script DML
+USE farm_db;
 
-INSERT INTO corrales (granja_id, nombre, capacidad) VALUES (1, 'Corral Norte', 10);
-INSERT INTO corrales (granja_id, nombre, capacidad) VALUES (1, 'Corral Sur', 15);
-INSERT INTO corrales (granja_id, nombre, capacidad) VALUES (2, 'Establo Principal', 5);
+-- Granjas
+INSERT INTO granjas (nombre, ubicacion, propietario) VALUES 
+    ('Granja Los Pinos', 'Norte', 'Carlos Pérez'),
+    ('Granja El Valle', 'Sur', 'María Gómez');
 
-INSERT INTO animales (corral_id, numero_crotal, especie, raza, fecha_nacimiento, peso_kg, estado_salud, proposito) 
-VALUES (1, 'ES123456789', 'Bovino', 'Frisona', '2021-05-12', 650.50, 'Sano', 'Leche');
-INSERT INTO animales (corral_id, numero_crotal, especie, raza, fecha_nacimiento, peso_kg, estado_salud, proposito) 
-VALUES (1, 'ES987654321', 'Bovino', 'Angus', '2022-03-20', 420.00, 'Sano', 'Carne');
-INSERT INTO animales (corral_id, numero_crotal, especie, raza, fecha_nacimiento, peso_kg, estado_salud, proposito) 
-VALUES (3, 'ES456123789', 'Porcino', 'Duroc', '2023-01-15', 110.20, 'Enfermo', 'Carne');
+-- Corrales
+INSERT INTO corrales (granja_id, nombre, capacidad) VALUES 
+    (1, 'Corral Norte', 10),
+    (1, 'Corral Sur', 15),
+    (2, 'Establo Principal', 5),
+    (2, 'Gallinero', 20),
+    (2, 'Cunero', 10);
 
-INSERT INTO tratamientos (animal_id, descripcion, fecha) VALUES (3, 'Administración de antibióticos por infección', '2023-10-15');
+-- Animales
+INSERT INTO animales (corral_id, numero_crotal, especie, raza, fecha_nacimiento, peso_kg, estado_salud, proposito) VALUES 
+    (1, 'ES123456789', 'Bovino', 'Frisona', '2021-05-12', 650.50, 'Sano', 'Leche'),
+    (1, 'ES987654321', 'Bovino', 'Angus', '2022-03-20', 420.00, 'Sano', 'Carne'),
+    (3, 'ES456123789', 'Porcino', 'Duroc', '2023-01-15', 110.20, 'Enfermo', 'Carne'),
+    (2, 'ES001122334', 'Ovino', 'Merina', '2023-06-10', 45.00, 'Sano', 'Lana'),
+    (4, 'ES556677889', 'Aviar', 'Leghorn', '2024-01-05', 2.10, 'Sano', 'Huevos'),
+    (5, 'ES998877665', 'Cunícola', 'Gigante de Flandes', '2024-02-14', 5.30, 'Sano', 'Carne');
+
+-- Tratamientos médicos
+INSERT INTO tratamientos (animal_id, descripcion, fecha) VALUES 
+    (3, 'Administración de antibióticos por infección', '2023-10-15');

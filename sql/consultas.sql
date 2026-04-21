@@ -15,7 +15,7 @@ INNER JOIN corrales c ON a.corral_id = c.id
 INNER JOIN granjas g ON c.granja_id = g.id
 WHERE a.estado_salud = 'Enfermo';
 
--- 3. Contar la cantidad de animales por granja (LEFT JOIN + GROUP BY)
+-- 3. Contar la cantidad de animales por granja
 SELECT g.nombre as granja, COUNT(a.id) as cantidad_animales 
 FROM granjas g
 LEFT JOIN corrales c ON g.id = c.granja_id
