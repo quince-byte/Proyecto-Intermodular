@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FarmService {
-    
+
     private GranjaDAO granjaDAO;
     private CorralDAO corralDAO;
     private AnimalDAO animalDAO;
@@ -25,10 +25,12 @@ public class FarmService {
         this.animalDAO = new AnimalDAO();
         this.tratamientoDAO = new TratamientoDAO();
     }
+
     // Función para obtener los animales
     public List<Animal> getAllAnimals() {
         return animalDAO.getAll();
     }
+
     // Función para eliminar un animal
     public void deleteAnimal(int id) throws Exception {
         animalDAO.delete(id);
@@ -55,45 +57,49 @@ public class FarmService {
                 throw new Exception("No se pudo crear el corral en la base de datos");
             }
         }
-        
+
         return corral;
     }
+
     // Función para añadir un animal
     public void addAnimal(Animal animal, String nombreGranja, String nombreCorral) throws Exception {
         if (!animal.esValido()) {
             throw new IllegalArgumentException(animal.getMensajeError());
         }
-        
+
         Corral corral = resolveCorral(nombreGranja, nombreCorral);
         animal.setCorralId(corral.getId());
         animalDAO.insert(animal);
     }
+
     // Función para actualizar los datos de un animal
     public void updateAnimal(Animal animal, String nombreGranja, String nombreCorral) throws Exception {
         if (!animal.esValido()) {
             throw new IllegalArgumentException(animal.getMensajeError());
         }
-        
+
         Corral corral = resolveCorral(nombreGranja, nombreCorral);
         animal.setCorralId(corral.getId());
         animalDAO.update(animal);
     }
+
     // Función para buscar un animal
     public List<Animal> buscarAnimales(String criterio) {
         String criterioLower = criterio.toLowerCase();
         return animalDAO.getAll().stream()
-            .filter(a -> a.getNumeroCrotal().toLowerCase().contains(criterioLower)
-                      || a.getEspecie().toLowerCase().contains(criterioLower)
-                      || a.getRaza().toLowerCase().contains(criterioLower)
-                      || (a.getCorralNombre() != null && a.getCorralNombre().toLowerCase().contains(criterioLower))
-                      || (a.getGranjaNombre() != null && a.getGranjaNombre().toLowerCase().contains(criterioLower)))
-            .collect(Collectors.toList());
+                .filter(a -> a.getNumeroCrotal().toLowerCase().contains(criterioLower)
+                        || a.getEspecie().toLowerCase().contains(criterioLower)
+                        || a.getRaza().toLowerCase().contains(criterioLower)
+                        || (a.getCorralNombre() != null && a.getCorralNombre().toLowerCase().contains(criterioLower))
+                        || (a.getGranjaNombre() != null && a.getGranjaNombre().toLowerCase().contains(criterioLower)))
+                .collect(Collectors.toList());
     }
 
     // Función para obtener los tratamientos de un animal
     public List<Tratamiento> getTratamientosByAnimal(int animalId) {
         return tratamientoDAO.getByAnimalId(animalId);
     }
+
     // Función para añadir tratamientos
     public void addTratamiento(Tratamiento tratamiento) throws Exception {
         if (tratamiento.getAnimalId() <= 0) {
