@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<granja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="esquema.xsd">
+    <animal id="1">
+        <crotal>ES123456789</crotal>
+        <especie>Bovino</especie>
+        <raza>Frisona</raza>
+        <fechaNacimiento>2021-05-12</fechaNacimiento>
+        <pesoKg>650.5</pesoKg>
+        <estado>Sano</estado>
+        <proposito>Leche</proposito>
+        <corral>Corral Norte</corral>
+        <granja>Granja Los Pinos</granja>
+    </animal>
+    <animal id="2">
+        <crotal>ES987654321</crotal>
+        <especie>Bovino</especie>
+        <raza>Angus</raza>
+        <fechaNacimiento>2022-03-20</fechaNacimiento>
+        <pesoKg>420.0</pesoKg>
+        <estado>Sano</estado>
+        <proposito>Carne</proposito>
+        <corral>Corral Norte</corral>
+        <granja>Granja Los Pinos</granja>
+    </animal>
+    <animal id="3">
+        <crotal>ES456123789</crotal>
+        <especie>Porcino</especie>
+        <raza>Duroc</raza>
+        <fechaNacimiento>2023-01-15</fechaNacimiento>
+        <pesoKg>110.2</pesoKg>
+        <estado>Enfermo</estado>
+        <proposito>Carne</proposito>
+        <corral>Establo Principal</corral>
+        <granja>Granja El Valle</granja>
+    </animal>
+    <animal id="4">
+        <crotal>ES001122334</crotal>
+        <especie>Ovino</especie>
+        <raza>Merina</raza>
+        <fechaNacimiento>2023-06-10</fechaNacimiento>
+        <pesoKg>45.0</pesoKg>
+        <estado>Sano</estado>
+        <proposito>Lana</proposito>
+        <corral>Corral Sur</corral>
+        <granja>Granja Los Pinos</granja>
+    </animal>
+    <animal id="5">
+        <crotal>ES556677889</crotal>
+        <especie>Aviar</especie>
+        <raza>Leghorn</raza>
+        <fechaNacimiento>2024-01-05</fechaNacimiento>
+        <pesoKg>2.1</pesoKg>
+        <estado>Sano</estado>
+        <proposito>Huevos</proposito>
+        <corral>Gallinero</corral>
+        <granja>Granja El Valle</granja>
+    </animal>
+    <animal id="6">
+        <crotal>ES998877665</crotal>
+        <especie>Cunícola</especie>
+        <raza>Gigante de Flandes</raza>
+        <fechaNacimiento>2024-02-14</fechaNacimiento>
+        <pesoKg>5.3</pesoKg>
+        <estado>Sano</estado>
+        <proposito>Carne</proposito>
+        <corral>Cunero</corral>
+        <granja>Granja El Valle</granja>
+    </animal>
+</granja>
