@@ -404,8 +404,8 @@ public class FarmController {
             double w = canvas.getWidth();
             double h = canvas.getHeight();
             
-            // Draw background
-            gc.setFill(Color.web("#8BC34A")); // Green grass
+            // Dibuja el fondo
+            gc.setFill(Color.web("#8BC34A"));
             gc.fillRect(0, 0, w, h);
 
             for (AnimalVisual v : animalVisualList) {
